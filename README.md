@@ -21,7 +21,7 @@ incus launch --profile default --profile gui images:ubuntu/noble gui-apps
 incus exec gui-apps -- adduser bwoo
 incus exec gui-apps -- usermod -aG sudo bwoo
 incus exec gui-apps -- sed -i '1 i\TERM=xterm-256color' /home/bwoo/.bashrc
-incus exec gui-apps -- echo "export DISPLAY=:0" >> /home/bwoo/.bashrc
+incus exec gui-apps -- sh -c "echo 'export DISPLAY=:0' >> /home/bwoo/.bashrc"
 incus exec gui-apps -- sh -c "echo 'Set disable_coredump false' > /etc/sudo.conf"
 ```
 
